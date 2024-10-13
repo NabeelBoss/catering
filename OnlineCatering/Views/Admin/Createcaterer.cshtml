@@ -1,0 +1,150 @@
+﻿
+@{
+    Layout = "_AdminLayout";
+}
+
+@model OnlineCatering.Models.UserInfo
+
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <!--begin::Toolbar-->
+                <div id="kt_app_toolbar" class="app-toolbar  py-3 py-lg-6 ">
+
+                    <!--begin::Toolbar container-->
+                    <div id="kt_app_toolbar_container" class="app-container  container-xxl d-flex flex-stack ">
+
+
+
+                        <!--begin::Page title-->
+                        <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3 ">
+                            <!--begin::Title-->
+                            <h1 class="page-heading d-flex text-gray-900 fw-bold fs-3 flex-column justify-content-center my-0">
+                                Caterers
+                            </h1>
+                            <!--end::Title-->
+                            <!--begin::Breadcrumb-->
+                            <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
+                                <!--begin::Item-->
+                                <li class="breadcrumb-item text-muted">
+                                    <a asp-action="Index" asp-controller="Admin" class="text-muted text-hover-primary">
+                                        Home
+                                    </a>
+                                </li>
+                                <!--end::Item-->
+                                <!--begin::Item-->
+                                <li class="breadcrumb-item">
+                                    <span class="bullet bg-gray-500 w-5px h-2px"></span>
+                                </li>
+                                <!--end::Item-->
+                                <!--begin::Item-->
+                                <li class="breadcrumb-item text-dark">
+                                    Caterer
+                                </li>
+                                <li class="breadcrumb-item">
+                                    <span class="bullet bg-gray-500 w-5px h-2px"></span>
+                                </li>
+                                <!--end::Item-->
+                                <!--begin::Item-->
+                                <li class="breadcrumb-item text-dark">
+                                    Add Caterer
+                                </li>
+                                <!--end::Item-->
+
+                            </ul>
+                            <!--end::Breadcrumb-->
+                        </div>
+                        <!--end::Page title-->
+                    </div>
+                    <!--end::Toolbar container-->
+                </div>
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="form-validation">
+                            <form class="form-valide" method="post" enctype="multipart/form-data">
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label" for="val-username">
+                                        Name <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-lg-6">
+                                        <input type="text" class="form-control" id="val-username" asp-for="UserName" placeholder="Enter a username..">
+                                    </div>
+                                </div>
+
+                                <br />
+
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label" for="val-username">
+                                        Image <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-lg-6">
+                                        <input type="file" class="form-control" id="val-username" asp-for="UserImage" name="image" placeholder="Enter a Caterer Image">
+                                    </div>
+                                </div>
+
+                                <br />
+
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label" for="val-email">
+                                        Email <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-lg-6">
+                                        <input type="text" class="form-control" id="val-email" asp-for="UserEmail" placeholder="Enter Your valid email..">
+                                    </div>
+                                </div>
+
+                                <br />
+
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label">
+                                        Password <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-lg-6">
+                                        <input type="password" class="form-control" id="val-password" asp-for="UserPassword" placeholder="Choose a safe password..">
+                                    </div>
+                                </div>
+
+                                <br />
+
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label" for="val-username">
+                                        Address <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-lg-6">
+                                        <input type="text" class="form-control" id="val-username" asp-for="UserAddress" placeholder="Enter your Address..">
+                                    </div>
+                                </div>
+
+                                <br />
+
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label" for="val-username">
+                                        Phone Number <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-lg-6">
+                                        <input type="number" class="form-control" id="val-username" asp-for="UserPhoneNo" placeholder="Enter Phone Number..">
+                                    </div>
+                                </div>
+
+                                <br />
+
+
+
+                                <div class="form-group row">
+                                    <div class="col-lg-4 ">
+                                        <button type="submit" class="btn btn-primary btn-sm form-control">Create</button>
+                                    </div>
+                                </div>
+                                <br />
+
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- #/ container -->
+</div>

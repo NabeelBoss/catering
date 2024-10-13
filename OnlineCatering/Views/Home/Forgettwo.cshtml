@@ -1,0 +1,44 @@
+﻿@model OnlineCatering.Models.UserInfo
+
+
+<section class="top-space-margin half-section bg-gradient-very-light-gray">
+    <div class="container">
+        <div class="row align-items-center justify-content-center"
+             data-anime="{ &quot;el&quot;: &quot;childs&quot;, &quot;translateY&quot;: [-15, 0], &quot;opacity&quot;: [0,1], &quot;duration&quot;: 300, &quot;delay&quot;: 0, &quot;staggervalue&quot;: 200, &quot;easing&quot;: &quot;easeOutQuad&quot; }">
+            <div class="col-12 col-xl-8 col-lg-10 text-center position-relative page-title-extra-large">
+                <h1 class="alt-font fw-600 text-dark-gray mb-10px">Forget Password</h1>
+            </div>
+            <div class="col-12 breadcrumb breadcrumb-style-01 d-flex justify-content-center">
+                <ul>
+                    <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li>Forget</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="pt-0">
+    <div class="container">
+        <div class="row g-0 justify-content-center">
+            <div class="col-xl-4 col-lg-5 col-md-10 contact-form-style-04 md-mb-50px"
+                 data-anime="{ &quot;translateY&quot;: [0, 0], &quot;opacity&quot;: [0,1], &quot;duration&quot;: 600, &quot;delay&quot;:100, &quot;staggervalue&quot;: 150, &quot;easing&quot;: &quot;easeOutQuad&quot; }">
+                <span class="fs-26 xs-fs-24 alt-font fw-600 text-dark-gray mb-20px d-block">Member login</span>
+                <form method="post">
+                    <label class="text-dark-gray mb-10px fw-500">New Password<span class="text-red">*</span></label>
+                    <input class="mb-20px bg-very-light-gray form-control required" asp-for="UserPassword" type="text"
+                           placeholder="Enter your password" />
+                    <p class="mt-10 text-center">Don't Want To Change? <a asp-controller="Home" asp-action="Login" class="text-dark"> Login</a></p>
+
+
+                    <input type="hidden" name="redirect">
+                    <button class="btn btn-medium btn-round-edge btn-dark-gray btn-box-shadow w-100"
+                            type="submit">
+                        Done
+                    </button>
+                    <div class="form-results mt-20px d-none"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

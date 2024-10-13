@@ -1,0 +1,65 @@
+/* BookingDetails.css */
+
+
+.containerr {
+    max-width: 1200px;
+}
+
+.product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.product-details {
+    max-width: 100%;
+    text-align: center;
+    color: black;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+
+.columnn {
+    flex-basis: 100%;
+    max-width: 100%;
+}
+
+.product-details p {
+  
+    font-size: 16px;
+}
+
+@media screen and (min-width: 768px) {
+    .product {
+        margin-top: 30px;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .product img {
+        margin-bottom: 0;
+    }
+
+    .product-details {
+        flex-basis: calc(50% - 10px);
+        max-width: calc(50% - 10px);
+        flex-direction: column;
+        text-align: left;
+    }
+        .product-details p {
+            flex-basis: 100%;
+            max-width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-size: 22px;
+            
+        }
+
+
+   
+
+}

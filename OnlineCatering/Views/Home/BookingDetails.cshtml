@@ -1,0 +1,91 @@
+﻿@model OnlineCatering.Models.UserInfo;
+
+
+
+@if (Model != null)
+{
+    <div class="container">
+        <div class="row mt-13 mb-5 xs-mb-8">
+            <div class="col-12 text-center">
+                <h2 class="alt-font text-dark-gray mb-0 ls-minus-2px">
+                    <span class="text-highlight fw-800">
+                        Caterer Details<span class="bg-base-color h-5px bottom-2px"></span>
+                    </span>
+                </h2>
+            </div>
+        </div>
+        <div class="product" data-anime="{ &quot;el&quot;: &quot;childs&quot;, &quot;translateY&quot;: [50, 0], &quot;opacity&quot;: [0,1], &quot;duration&quot;: 1200, &quot;delay&quot;: 50, &quot;staggervalue&quot;: 150, &quot;easing&quot;: &quot;easeOutQuad&quot; }">
+            <div class="product-image">
+                <img src="~/@Model.UserImage" />
+            </div>
+            <div class="product-details mt-8 mb-8">
+                <div class="columnn">
+                    <p class="cname"> <span class="fw-bold">Name: </span>@Model.UserName</p>
+                    <p class="cemail"><span class="fw-bold">Email: </span>@Model.UserEmail</p>
+                </div>
+                <div class="columnn">
+                    <p class="caddress"><span class="fw-bold">Address: </span>@Model.UserAddress</p>
+                    <p class="cphoneno"><span class="fw-bold">Phone Number: </span>@Model.UserPhoneNo</p>
+                </div>
+                <div class="columnn">
+
+                    <div data-anime="{ &quot;opacity&quot;: [0, 1], &quot;translateY&quot;: [100, 0], &quot;easing&quot;: &quot;easeOutQuad&quot;, &quot;duration&quot;: 800, &quot;delay&quot;: 400 }">
+                        <a asp-controller="Home" asp-action="BookingForm" asp-route-id="@Model.UserId" class="btn btn-dark-gray btn-box-shadow btn-medium">Booking Caterer</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row mt-4 mb-4 xs-mb-8">
+            <div class="col-12 text-center">
+                <h2 class="alt-font text-dark-gray mb-0 ls-minus-2px">
+                    Popular Menus
+                </h2>
+            </div>
+        </div>
+        <div class="row row-cols-12 mb-5"
+             data-anime="{ &quot;el&quot;: &quot;childs&quot;, &quot;translateY&quot;: [50, 0], &quot;opacity&quot;: [0,1], &quot;duration&quot;: 1200, &quot;delay&quot;: 50, &quot;staggervalue&quot;: 150, &quot;easing&quot;: &quot;easeOutQuad&quot; }">
+            <ul class="shop-modern shop-wrapper grid-loading grid grid-4col xl-grid-3col sm-grid-2col xs-grid-1col gutter-extra-large text-center"
+                data-anime="{ &quot;el&quot;: &quot;childs&quot;, &quot;translateY&quot;: [-15, 0], &quot;opacity&quot;: [0,1], &quot;duration&quot;: 300, &quot;delay&quot;: 0, &quot;staggervalue&quot;: 150, &quot;easing&quot;: &quot;easeOutQuad&quot; }">
+                <li class="grid-sizer"></li>
+
+                @foreach (var menu in Model.Menus)
+                {
+
+                    <li class="grid-item">
+                        <div class="shop-box mb-10px">
+                            <div class="shop-image mb-20px">
+                                <img src="~/CatererDashboard/@menu.MenuImage" style="width: 200px; height: 200px; object-fit: cover;">
+                                <div class="shop-overlay bg-gradient-gray-light-dark-transparent"></div>
+                                <div class="shop-buttons-wrap">
+                                    <a asp-controller="Home" asp-action="Shopmain"
+                                       class="text-dark-gray btn btn-small btn-box-shadow btn-white btn-round-edge left-icon add-to-cart">
+                                        <span class="quick-view-text button-text">
+                                            View Menu
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="shop-footer text-center">
+
+                                <div class="alt-font text-dark-gray fs-19 fw-500">@menu.MenuName</div>
+                                <div class="price fs-16">@menu.MenuPrice PKR</div>
+                            </div>
+                        </div>
+                    </li>
+
+                }
+            </ul>
+
+        </div>
+    </div>
+}
+else
+{
+    <p>User information not found.</p>
+}
+
+
+
+
+

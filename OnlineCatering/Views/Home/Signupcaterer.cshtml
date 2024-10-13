@@ -1,0 +1,70 @@
+﻿@model OnlineCatering.Models.UserInfo
+
+
+
+<section class="top-space-margin half-section bg-gradient-very-light-gray">
+    <div class="container">
+        <div class="row align-items-center justify-content-center"
+             data-anime="{ &quot;el&quot;: &quot;childs&quot;, &quot;translateY&quot;: [-15, 0], &quot;opacity&quot;: [0,1], &quot;duration&quot;: 300, &quot;delay&quot;: 0, &quot;staggervalue&quot;: 200, &quot;easing&quot;: &quot;easeOutQuad&quot; }">
+            <div class="col-12 col-xl-8 col-lg-10 text-center position-relative page-title-extra-large">
+                <h1 class="alt-font fw-600 text-dark-gray mb-10px">Caterer Signup</h1>
+            </div>
+            <div class="col-12 breadcrumb breadcrumb-style-01 d-flex justify-content-center">
+                <ul>
+                    <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li><a asp-controller="Home" asp-action="Account">Account</a></li>
+                    <li>Caterer</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="pt-0">
+    <div class="container">
+        <div class="row g-0 d-flex justify-content-center align-items-center">
+            <div class="col-lg-6 col-md-10 p-6 box-shadow-extra-large border-radius-6px justify-content-center"
+                 data-anime="{ &quot;translateY&quot;: [0, 0], &quot;opacity&quot;: [0,1], &quot;duration&quot;: 600, &quot;delay&quot;:150, &quot;staggervalue&quot;: 150, &quot;easing&quot;: &quot;easeOutQuad&quot; }">
+                <span class="fs-26 xs-fs-24 alt-font fw-600 text-dark-gray mb-20px d-block">Create an account</span>
+                <form method="post" enctype="multipart/form-data">
+                    <label class="text-dark-gray mb-10px fw-500">Username<span class="text-red">*</span></label>
+                    <input class="mb-20px bg-very-light-gray form-control required" asp-for="UserName" type="text"
+                           placeholder="Enter your username" required/>
+
+                    <label class="text-dark-gray mb-10px fw-500">
+                        Image<span class="text-red">*</span>
+                    </label>
+                    <input class="mb-20px bg-very-light-gray form-control required" asp-for="UserImage" type="file" name="img"
+                           placeholder="Select Your Image" required/>
+
+                    <label class="text-dark-gray mb-10px fw-500">
+                        Email address<span class="text-red">*</span>
+                    </label>
+                    <input class="mb-20px bg-very-light-gray form-control required" asp-for="UserEmail" type="email"
+                           placeholder="Enter your email" required />
+                    <label class="text-dark-gray mb-10px fw-500">Password<span class="text-red">*</span></label>
+                    <input class="mb-20px bg-very-light-gray form-control required" asp-for="UserPassword" type="password"
+                           placeholder="Enter your password" required />
+
+                    <label class="text-dark-gray mb-10px fw-500">Address<span class="text-red">*</span></label>
+                    <input class="mb-20px bg-very-light-gray form-control required" asp-for="UserAddress" type="text"
+                           placeholder="Enter your Address" required />
+
+                    <label class="text-dark-gray mb-10px fw-500">Phone No<span class="text-red">*</span></label>
+                    <input class="mb-20px bg-very-light-gray form-control required" asp-for="UserPhoneNo" type="text"
+                           placeholder="Enter your Number" required />
+
+
+                    <p class="mt-10 text-center">Already have an account ?<a asp-controller="Home" asp-action="Login" class="text-dark">Login</a></p>
+
+                    <button class="btn btn-medium btn-round-edge btn-dark-gray btn-box-shadow w-100"
+                            type="submit">
+                        Register
+                    </button>
+                    <div class="form-results mt-20px d-none"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

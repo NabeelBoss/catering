@@ -1,0 +1,131 @@
+﻿@model OnlineCatering.Models.BookingViewModel
+<head>
+    <link rel="stylesheet" href="~/css/bookingForm.css" />
+</head>
+
+<section class="top-space-margin half-section bg-gradient-very-light-gray">
+    <div class="container">
+        <div class="row align-items-center justify-content-center"
+             data-anime="{ &quot;el&quot;: &quot;childs&quot;, &quot;translateY&quot;: [-15, 0], &quot;opacity&quot;: [0,1], &quot;duration&quot;: 300, &quot;delay&quot;: 0, &quot;staggervalue&quot;: 200, &quot;easing&quot;: &quot;easeOutQuad&quot; }">
+            <div class="col-12 col-xl-8 col-lg-10 text-center position-relative page-title-extra-large">
+                <h1 class="alt-font fw-600 text-dark-gray mb-10px">Booking Form</h1>
+            </div>
+            <div class="col-12 breadcrumb breadcrumb-style-01 d-flex justify-content-center">
+                <ul>
+                    <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li>Booking</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="pt-0 bg-dark-grey">
+    <div class="container">
+        <div class="row g-0 justify-content-center ">
+            <div class="col-xl-4 col-lg-5 col-md-10 contact-form-style-04 md-mb-50px"
+                 data-anime="{ &quot;translateY&quot;: [0, 0], &quot;opacity&quot;: [0,1], &quot;duration&quot;: 600, &quot;delay&quot;:100, &quot;staggervalue&quot;: 150, &quot;easing&quot;: &quot;easeOutQuad&quot; }">
+                <form method="post" class="form">
+                    <div class="input-box">
+                        <span class="fs-26 xs-fs-24 alt-font fw-600 text-dark-gray mb-20px d-block">Member login</span>
+                        <div class="column">
+                            <div class="select-box">
+                                <label>Menu:</label>
+                                <select class="form-control"  asp-for="BookingInfo.BookingMenu">
+                                    <option selected>Select Menu</option>
+                                    @foreach (var menu in Model.Menus)
+                                    {
+                                        <option value="@menu.MenuId">@menu.MenuName</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="select-box">
+                                <label>Venue:</label>
+                                <select class="form-control" asp-for="BookingInfo.BookingMenu">
+                                    <option selected>Select Venue</option>
+                                    @foreach (var venue in Model.Venues)
+                                    {
+                                        <option value="@venue.VenueId">@venue.VenueName</option>
+                                    }
+                                </select>
+                            </div>
+
+                        </div>
+                    </div>
+                    <br />
+                    <br />
+                    <div class="input-box mt-8" style="text-align: center;">
+                        <div class="row" style="display: flex; align-items: center;">
+                            <label style="margin-right: 10px;">Guests:</label>
+                            <div class="column" style="flex: 1;">
+                                <div class="wrapperr" style="display: flex; align-items: center;">
+                                    <button class="decrement-btn">-</button>
+                                    <input type="number" value="1" asp-for="BookingInfo.TotalGuest" id="numberInput">
+                                    <button class="increment-btn">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <input id="priceInput" class="m-0 w-50 p-5  text-center" asp-for="BookingInfo.BookingPrice" type="text" disabled style="background:transparent;border:none;font-size:20px">
+                    </div>
+                    <button class="btn btn-medium btn-round-edge btn-dark-gray btn-box-shadow w-100 mt-5"
+                            type="submit">
+                        Submit
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const decrementBtn = document.querySelector(".decrement-btn");
+        const incrementBtn = document.querySelector(".increment-btn");
+        const input = document.querySelector("#numberInput");
+        const priceInput = document.querySelector("#priceInput");
+
+        // Function to calculate and update the price
+        function updatePrice(numGuests) {
+            // Assuming price is 200 per guest
+            const price = 200 * numGuests;
+            priceInput.value = "Rs " + price; // Displaying the price
+        }
+
+        decrementBtn.addEventListener("click", function (event) {
+            event.preventDefault();
+            const currentValue = parseInt(input.value);
+            if (currentValue > 1) {
+                input.value = currentValue - 1;
+                updatePrice(currentValue - 1); // Update price when decrementing
+            }
+        });
+
+        incrementBtn.addEventListener("click", function (event) {
+            event.preventDefault();
+            input.value = parseInt(input.value) + 1;
+            updatePrice(parseInt(input.value)); // Update price when incrementing
+        });
+
+        input.addEventListener("input", function (event) {
+            const parsedValue = parseInt(input.value);
+            if (!isNaN(parsedValue) && parsedValue >= 1) {
+                updatePrice(parsedValue); // Update price when manually typing guests
+            } else {
+                updatePrice(1); // Update price when invalid input
+            }
+        });
+
+        // Initialize price on page load
+        updatePrice(parseInt(input.value));
+
+        // Prevent form submission on Enter key press
+        input.addEventListener('keydown', function (event) {
+            if (event.keyCode === 13) {
+                event.preventDefault();
+            }
+        });
+    });
+</script>

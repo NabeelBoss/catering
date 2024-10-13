@@ -1,0 +1,276 @@
+﻿@{
+	Layout = "_CatererLayout";
+}
+
+@model OnlineCatering.Models.Menu;
+
+<!--begin::Main-->
+<div class="app-main flex-column flex-row-fluid" id="kt_app_main">
+	<!--begin::Content wrapper-->
+	<div class="d-flex flex-column flex-column-fluid">
+		<!--begin::Toolbar-->
+		<div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
+			<!--begin::Toolbar container-->
+			<div id="kt_app_toolbar_container" class="app-container container-xxl d-flex flex-stack">
+				<!--begin::Page title-->
+				<div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
+					<!--begin::Title-->
+					<h1 class="page-heading d-flex text-gray-900 fw-bold fs-3 flex-column justify-content-center my-0">
+						Adding Menu
+					</h1>
+					<!--end::Title-->
+					<!--begin::Breadcrumb-->
+					<ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
+						<!--begin::Item-->
+						<li class="breadcrumb-item text-muted">
+							<a asp-action="Index" asp-controller="Caterer" class="text-muted text-hover-primary">
+								Home
+							</a>
+						</li>
+						<!--end::Item-->
+						<li class="breadcrumb-item">
+							<span class="bullet bg-gray-500 w-5px h-2px"></span>
+						</li>
+
+						<!--begin::Item-->
+						<li class="breadcrumb-item text-dark">
+							Add Menu
+						</li>
+						<!--end::Item-->
+					</ul>
+					<!--end::Breadcrumb-->
+				</div>
+				<!--end::Page title-->
+			</div>
+			<!--end::Toolbar container-->
+		</div>
+		<!--end::Toolbar-->
+		<!--begin::Content-->
+		<div id="kt_app_content" class="app-content flex-column-fluid">
+			<!--begin::Content container-->
+			<div id="kt_app_content_container" class="app-container container-xxl">
+				<!--begin::Form-->
+				<form id="kt_ecommerce_add_product_form" class="form d-flex flex-column flex-lg-row" method="post" enctype="multipart/form-data">
+					<!--begin::Aside column-->
+					<div class="d-flex flex-column gap-7 gap-lg-10 w-100 w-lg-300px mb-7 me-lg-10">
+						<!--begin::Thumbnail settings-->
+						<div class="card card-flush py-4">
+							<!--begin::Card header-->
+							<div class="card-header">
+								<!--begin::Card title-->
+								<div class="card-title required">
+									<h2>Menu Image</h2>
+								</div>
+								<!--end::Card title-->
+							</div>
+							<!--end::Card header-->
+							<!--begin::Card body-->
+							<div class="card-body text-center pt-0">
+								<!--begin::Image input-->
+								<!--begin::Image input placeholder-->
+								@* <style>
+
+									.image-input-placeholder {
+										background-image: url("MenuImage");
+									}
+
+								</style> *@
+								<!--end::Image input placeholder-->
+
+								<div class="image-input image-input-empty image-input-outline image-input-placeholder mb-3"
+									 data-kt-image-input="true">
+
+									<img class="image-input-placeholder" src="~/CatererDashboard/MenuImages/MenuImage" name="img">
+									<!--begin::Preview existing avatar-->
+									<div class="image-input-wrapper w-150px h-150px"></div>
+
+									<!--begin::Label-->
+									<label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
+										   data-kt-image-input-action="change" data-bs-toggle="tooltip"
+										   title="Change Avatar*">
+										<i class="fa-solid fa-pencil fs-6">
+											<span class="path1"></span><span class="path2"></span>
+										</i>
+										<!--begin::Inputs-->
+										<input type="file" name="img" accept=".png, .jpg, .jpeg" />
+										<input type="hidden" name="avatar_remove" />
+										<!--end::Inputs-->
+									</label>
+									<!--end::Label-->
+									<!--begin::Cancel-->
+									<span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
+										  data-kt-image-input-action="cancel" data-bs-toggle="tooltip"
+										  title="Cancel avatar">
+										<i class="fa-solid fa-x fs-6">
+											<span class="path1"></span><span class="path2"></span>
+										</i>
+									</span>
+									<!--end::Cancel-->
+									<!--begin::Remove-->
+									<span class="btn btn-icon btn-circle btn-active-color-danger w-25px h-25px bg-body shadow"
+										  data-kt-image-input-action="remove" data-bs-toggle="tooltip"
+										  title="Remove avatar">
+										<i class="fa-solid fa-x fs-6">
+											<span class="path1"></span><span class="path2"></span>
+										</i>
+									</span>
+									<!--end::Remove-->
+								</div>
+								<!--end::Image input-->
+								<!--begin::Description-->
+								<div class="text-muted fs-7">
+									Set the Menu image. Only *.png, *.jpg
+									and *.jpeg image files are accepted
+								</div>
+								<!--end::Description-->
+							</div>
+							<!--end::Card body-->
+						</div>
+						<!--end::Thumbnail settings-->
+						<!--begin::Category-->
+						<div class="card card-flush py-4">
+							<!--begin::Card header-->
+							<div class="card-header">
+								<!--begin::Card title-->
+								<div class="card-title">
+									<h2>Choose Category</h2>
+								</div>
+								<!--end::Card title-->
+							</div>
+							<!--end::Card header-->
+							<!--begin::Card body-->
+							<div class="card-body pt-0">
+								<!--begin::Input group-->
+								<!--begin::Label-->
+								<label class="form-label">Categories</label>
+								<!--end::Label-->
+								<!--begin::Select2-->
+								<select class="form-select mb-2" data-control="select2"
+										data-placeholder="Select an option" data-allow-clear="true"
+										asp-for="MenuCat">
+
+									<option></option>
+									@* @foreach (var cat in Model)
+									{
+
+										<option value="@cat.CategoryId">@cat.CategoryName</option>
+									} *@
+									
+								</select>
+								<!--end::Select2-->
+								<!--end::Input group-->
+							</div>
+							<!--end::Card body-->
+						</div>
+						<!--end::Category-->
+					</div>
+					<!--end::Aside column-->
+					<!--begin::Main column-->
+					<div class="d-flex flex-column flex-row-fluid gap-7 gap-lg-10">
+						<!--begin::Tab content-->
+						<div class="tab-content">
+							<!--begin::Tab pane-->
+							<div class="tab-pane fade show active" id="kt_ecommerce_add_product_general"
+								 role="tab-panel">
+								<div class="d-flex flex-column gap-7 gap-lg-10">
+									<!--begin::General options-->
+									<div class="card card-flush py-4">
+										<!--begin::Card header-->
+										<div class="card-header">
+											<div class="card-title">
+												<h2>General</h2>
+											</div>
+										</div>
+										<!--end::Card header-->
+										<!--begin::Card body-->
+										<div class="card-body pt-0">
+											<!--begin::Input group-->
+											<div class="mb-10 fv-row d-none">
+												<!--begin::Label-->
+												<label class="required form-label">ID</label>
+												<!--end::Label-->
+												<!--begin::Input-->
+												<input type="number" asp-for="MenuId" class="form-control mb-2" placeholder="Menu id" />
+												<!--end::Input-->
+											</div>
+											<!--end::Input group-->
+											<!--begin::Input group-->
+											<div class="mb-10 fv-row">
+												<!--begin::Label-->
+												<label class="required form-label">Name</label>
+												<!--end::Label-->
+												<!--begin::Input-->
+												<input type="text" asp-for="MenuName" class="form-control mb-2" placeholder="Menu name" required />
+												<!--end::Input-->
+											</div>
+											<!--end::Input group-->
+											<!--begin::Input group-->
+											<div class="mb-10 fv-row">
+												<!--begin::Label-->
+												<label class="required form-label">Description</label>
+												<!--end::Label-->
+												<!--begin::Input-->
+												<textarea rows="4" asp-for="MenuDescription" cols="50" type="text" class="form-control mb-2" placeholder="Menu Description" required></textarea>
+
+												<!--end::Input-->
+											</div>
+											<!--end::Input group-->
+										</div>
+										<!--end::Card header-->
+									</div>
+									<!--end::General options-->
+									<!--begin::Pricing-->
+									<div class="card card-flush py-4">
+										<!--begin::Card header-->
+										<div class="card-header">
+											<div class="card-title">
+												<h2>Pricing</h2>
+											</div>
+										</div>
+										<!--end::Card header-->
+										<!--begin::Card body-->
+										<div class="card-body pt-0">
+											<!--begin::Input group-->
+											<div class="mb-10 fv-row">
+												<!--begin::Label-->
+												<label class="required form-label">Menu Price</label>
+												<!--end::Label-->
+												<!--begin::Input-->
+												<input type="number" asp-for="MenuPrice"
+													   class="form-control mb-2"
+													   placeholder="Menu price" required />
+												<!--end::Input-->
+												<!--begin::Description-->
+												<div class="text-muted fs-7">
+													Set the Menu price.
+												</div>
+												<!--end::Description-->
+											</div>
+											<!--end::Input group-->
+										</div>
+										<!--end::Card header-->
+									</div>
+									<!--end::Pricing-->
+								</div>
+							</div>
+							<!--end::Tab pane-->
+
+
+						</div>
+						<!--end::Tab content-->
+						<div class="d-flex justify-content-center">
+							<button type="reset" class="btn btn-sm btn-light fw-bolder btn-active-light-primary me-2">Reset</button>
+							<button type="submit" class="btn btn-sm fw-bolder btn-primary">Submit</button>
+						</div>
+					</div>
+					<!--end::Main column-->
+				</form>
+				<!--end::Form-->
+			</div>
+			<!--end::Content container-->
+		</div>
+		<!--end::Content-->
+	</div>
+	<!--end::Content wrapper-->
+</div>
+<!--end:::Main-->

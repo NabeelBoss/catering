@@ -1,0 +1,107 @@
+﻿@{
+	Layout = "_AdminLayout";
+}
+
+@model OnlineCatering.Models.UserInfo
+
+<!--begin::Content-->
+<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+	<!--begin::Post-->
+	<div class="post d-flex flex-column-fluid" id="kt_post">
+		<!--begin::Container-->
+		<div id="kt_content_container" class="container-xxl">
+
+
+			@Html.Partial("_AccountPartialView")
+
+
+
+			<!--begin::details View-->
+			<div class="card mb-5 mb-xl-10">
+				<!--begin::Card header-->
+				<div class="card-header ">
+					<!--begin::Card title-->
+					<div class="card-title m-0">
+						<h3 class="fw-bolder m-0">Profile Details</h3>
+					</div>
+					<!--end::Card title-->
+					<!--begin::Action-->
+					<a asp-action="AccountSettings" asp-controller="Admin"
+					   asp-route-id="@Model.UserId" class="btn btn-primary align-self-center">Edit Profile</a>
+					<!--end::Action-->
+				</div>
+				<!--begin::Card header-->
+				<!--begin::Card body-->
+				<div class="card-body p-9">
+
+
+					<!--begin::Row-->
+					<div class="row mb-7">
+						<!--begin::Label-->
+						<label class="col-lg-4 fw-bold fs-5 text-muted">Profile Picture</label>
+						<!--end::Label-->
+						<!--begin::Col-->
+						<div class="col-lg-8">
+							<!--begin: Pic-->
+							<div class="me-7 mb-4">
+								<div class="symbol symbol-100px symbol-lg-160px symbol-fixed position-relative">
+									<img src="~/@Model.UserImage" alt="image" style="width: 250px; height: 250px; object-fit: cover;"/>
+									<div class="position-absolute translate-middle bottom-0 start-100 mb-6 bg-success rounded-circle border border-4 border-white h-20px w-20px">
+									</div>
+								</div>
+							</div>
+							<!--end::Pic-->
+						</div>
+						<!--end::Col-->
+
+					</div>
+					<!--end::Row-->
+					<!--begin::Row-->
+					<div class="row mb-7">
+						<!--begin::Label-->
+						<label class="col-lg-4 fw-bold text-muted">Name</label>
+						<!--end::Label-->
+						<!--begin::Col-->
+						<div class="col-lg-8">
+							<span class="fw-bolder fs-6 text-gray-800">@Model.UserName</span>
+						</div>
+						<!--end::Col-->
+					</div>
+					<!--end::Row-->
+					<!--begin::Input group-->
+					<div class="row mb-7">
+						<!--begin::Label-->
+						<label class="col-lg-4 fw-bold text-muted">Email</label>
+						<!--end::Label-->
+						<!--begin::Col-->
+						<div class="col-lg-8 fv-row">
+							<span class="fw-bold text-gray-800 fs-6">@Model.UserEmail</span>
+						</div>
+						<!--end::Col-->
+					</div>
+					<!--end::Input group-->
+					<!--begin::Input group-->
+					<div class="row mb-7">
+						<!--begin::Label-->
+						<label class="col-lg-4 fw-bold text-muted">Password</label>
+						<!--end::Label-->
+						<!--begin::Col-->
+						<div class="col-lg-8 fv-row">
+							<span class="fw-bold text-gray-800 fs-6">@Model.UserPassword</span>
+						</div>
+						<!--end::Col-->
+					</div>
+					<!--end::Input group-->
+					<!--begin::Input group-->
+					<!--end::Input group-->
+
+				</div>
+				<!--end::Card body-->
+			</div>
+			<!--end::details View-->
+		</div>
+		<!--end::Container-->
+	</div>
+	<!--end::Plans-->
+</div>
+<!--end::Modal body-->

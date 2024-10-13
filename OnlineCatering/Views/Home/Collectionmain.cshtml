@@ -1,0 +1,63 @@
+﻿@model IEnumerable<UserInfo>
+
+<section class="top-space-margin half-section bg-gradient-very-light-gray">
+    <div class="container">
+        <div class="row align-items-center justify-content-center"
+             data-anime="{ &quot;el&quot;: &quot;childs&quot;, &quot;translateY&quot;: [-15, 0], &quot;opacity&quot;: [0,1], &quot;duration&quot;: 300, &quot;delay&quot;: 0, &quot;staggervalue&quot;: 200, &quot;easing&quot;: &quot;easeOutQuad&quot; }">
+            <div class="col-12 col-xl-8 col-lg-10 text-center position-relative page-title-extra-large">
+                <h1 class="alt-font fw-600 text-dark-gray mb-10px">Caterers</h1>
+            </div>
+            <div class="col-12 breadcrumb breadcrumb-style-01 d-flex justify-content-center">
+                <ul>
+                    <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li>Caterers</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="py-0 pb-5">
+    <div class="container">
+        <div class="row row-cols-12 "
+             data-anime="{ &quot;el&quot;: &quot;childs&quot;, &quot;translateY&quot;: [50, 0], &quot;opacity&quot;: [0,1], &quot;duration&quot;: 1200, &quot;delay&quot;: 50, &quot;staggervalue&quot;: 150, &quot;easing&quot;: &quot;easeOutQuad&quot; }">
+            <ul class="shop-modern shop-wrapper grid-loading grid grid-4col xl-grid-3col sm-grid-2col xs-grid-1col gutter-extra-large text-center"
+                data-anime="{ &quot;el&quot;: &quot;childs&quot;, &quot;translateY&quot;: [-15, 0], &quot;opacity&quot;: [0,1], &quot;duration&quot;: 300, &quot;delay&quot;: 0, &quot;staggervalue&quot;: 150, &quot;easing&quot;: &quot;easeOutQuad&quot; }">
+                <li class="grid-sizer"></li>
+
+                @foreach (var caterer in Model)
+                {
+                    <li class="grid-item">
+                        <div class="shop-box mb-10px">
+                            <div class="shop-image mb-20px">
+                                    <img src="~/@caterer.UserImage">
+                                    <div class="shop-overlay bg-gradient-gray-light-dark-transparent"></div>
+                                <div class="shop-overlay bg-gradient-gray-light-dark-transparent"></div>
+                                <div class="shop-buttons-wrap">
+                                    <a asp-controller="Home" asp-action="BookingDetails" asp-route-id="@caterer.UserId"
+                                       class="text-dark-gray btn btn-small btn-box-shadow btn-white btn-round-edge left-icon add-to-cart">
+                                        <span class="quick-view-text button-text">
+                                            <img src="~/images/chef.png" style="width: 15px; height: auto; padding-bottom: 5px; ">
+                                            Book Caterer
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="shop-footer text-center">
+                                <a asp-controller="Home" asp-action="BookingDetails" asp-route-id="@caterer.UserId" class="alt-font text-dark-gray fs-19 fw-500">@caterer.UserName</a>
+                                <div class="fs-16">@caterer.UserAddress</div>
+                            </div>
+                        </div>
+                    </li>
+
+                }
+
+            </ul>
+
+        </div>
+
+    </div>
+</section>
+

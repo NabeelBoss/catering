@@ -1,0 +1,70 @@
+﻿@model OnlineCatering.Models.UserInfo
+
+
+<section class="top-space-margin half-section bg-gradient-very-light-gray">
+    <div class="container">
+        <div class="row align-items-center justify-content-center"
+             data-anime="{ &quot;el&quot;: &quot;childs&quot;, &quot;translateY&quot;: [-15, 0], &quot;opacity&quot;: [0,1], &quot;duration&quot;: 300, &quot;delay&quot;: 0, &quot;staggervalue&quot;: 200, &quot;easing&quot;: &quot;easeOutQuad&quot; }">
+            <div class="col-12 col-xl-8 col-lg-10 text-center position-relative page-title-extra-large">
+                <h1 class="alt-font fw-600 text-dark-gray mb-10px">Login</h1>
+            </div>
+            <div class="col-12 breadcrumb breadcrumb-style-01 d-flex justify-content-center">
+                <ul>
+                    <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li>My account</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="pt-0">
+    <div class="container">
+        <div class="row g-0 justify-content-center">
+            <div class="col-xl-4 col-lg-5 col-md-10 contact-form-style-04 md-mb-50px"
+                 data-anime="{ &quot;translateY&quot;: [0, 0], &quot;opacity&quot;: [0,1], &quot;duration&quot;: 600, &quot;delay&quot;:100, &quot;staggervalue&quot;: 150, &quot;easing&quot;: &quot;easeOutQuad&quot; }">
+                <span class="fs-26 xs-fs-24 alt-font fw-600 text-dark-gray mb-20px d-block">Member login</span>
+                <form method="post">
+                    <input type="hidden" name="returnUrl" value="@ViewData["returnUrl"]" />
+                    <label class="text-dark-gray mb-10px fw-500">
+                        Email address<span class="text-red">*</span>
+                    </label>
+                    <input class="mb-20px bg-very-light-gray form-control required" asp-for="UserEmail" type="email"
+                           placeholder="Enter your username" />
+                    <label class="text-dark-gray mb-10px fw-500">Password<span class="text-red">*</span></label>
+                    <input class="mb-20px bg-very-light-gray form-control required" asp-for="UserPassword" type="password"
+                           placeholder="Enter your password" />
+                    <div class="position-relative terms-condition-box text-start d-flex align-items-center mb-20px">
+
+                        <label>
+                            <input type="checkbox" name="terms_condition" id="terms_condition" value="1"
+                                   class="terms-condition check-box align-middle required">
+                            <span class="box fs-14">Remember me</span>
+                        </label>
+                        <a asp-controller="Home" asp-action="Forget" class="fs-14 text-dark-gray fw-500 text-decoration-line-bottom ms-auto">
+                            Forget
+                            your password?
+                        </a>
+
+                    </div>
+
+                    @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+                    {
+                        <div class="form-results text-center alert alert-danger" role="alert">
+                            @ViewBag.ErrorMessage
+                        </div>
+                    }
+
+                    <p class="mt-10 text-center">New in this site ?<a asp-controller="Home" asp-action="Account" class="text-dark"> Create New Account</a></p>
+
+                    <input type="hidden" name="redirect">
+                    <button class="btn btn-medium btn-round-edge btn-dark-gray btn-box-shadow w-100"
+                            type="submit">
+                        Login
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
